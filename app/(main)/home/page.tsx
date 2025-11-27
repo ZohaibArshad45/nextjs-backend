@@ -15,6 +15,10 @@ const Home = () => {
       <Link href="/create-post-api" className="text-blue-600 hover:underline">
         How we create POST API for signup
       </Link>
+
+      <Link href="/next-auth" className="text-blue-600 hover:underline">
+        learn about next auth
+      </Link>
     </div>
   );
 };
