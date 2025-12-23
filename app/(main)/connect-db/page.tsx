@@ -8,7 +8,8 @@ and the connection promise here. It prevents TS errors and
 lets us reuse the same connection during development.
 `;
 
-  const typeCode = `import { Connection } from "mongoose";
+  const typeCode = `//type.ts
+  import { Connection } from "mongoose";
 
 declare global {
   var mongoose: {
