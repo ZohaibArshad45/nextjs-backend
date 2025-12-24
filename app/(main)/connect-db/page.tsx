@@ -48,20 +48,18 @@ already exists, we reuse it. If not, we create one and store it.
       // console.log("Cashed db connected")
       return cached.conn;
     }
-  
     if (!cached.promise) {
       cached.promise = mongoose.connect(MONGO_URL).then((m) => m.connection);
     }
   
     try {
       cached.conn = await cached.promise;
+      return cached.conn;
       // console.log("DB connected")
     } catch (error) {
       cached.promise = null;
       throw error;
     }
-  
-    return cached.conn;
   };
   
   export default dbConnect;
