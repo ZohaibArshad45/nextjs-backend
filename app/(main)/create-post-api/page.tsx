@@ -26,7 +26,8 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(req: NextRequest) {
     try {
         const { name, email, password } = await req.json();
-
+        
+        //connect to DB
         await dbConnect();
 
         if (!name || !email || !password) {
@@ -54,8 +55,8 @@ export async function POST(req: NextRequest) {
         const hashedPassword = await bcrypt.hash(password, 10);
 
         const newUser = await UserModel.create({
-            name,
-            email,
+            name:name,
+            email:email,
             password: hashedPassword,
         });
 
